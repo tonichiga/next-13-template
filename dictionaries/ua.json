@@ -1,8 +1,8 @@
 {
   "home": {
     "hero": {
-      "title": "Welcome to the OpenShift Developer Portal",
-      "subtitle": "This is the place where you can find all the resources you need to start developing and deploying your applications on OpenShift."
+      "title": "Вiтаю",
+      "subtitle": "Це мiсце, де ви знайдете всi ресурси, необхiднi для початку розробки та розгортання ваших додаткiв на OpenShift."
     }
   }
 }

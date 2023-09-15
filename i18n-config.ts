@@ -1,4 +1,4 @@
-export const locales = ["en", "ua", "ru", "az", "kz", "es"];
+export const locales = ["en", "ua", "ru"];
 export const defaultLocale = "en";
 export const i18n = {
   defaultLocale: defaultLocale,
