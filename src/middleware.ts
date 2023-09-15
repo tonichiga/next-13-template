@@ -32,10 +32,13 @@ export async function middleware(request: NextRequest) {
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
+  console.log("pathname", pathname);
+  console.log("pathnameIsMissingLocale", pathnameIsMissingLocale);
+
   if (pathnameIsMissingLocale) {
     const nextLocal = request.cookies.get("NEXT_LOCALE");
-
     if (nextLocal) {
+      console.log("nextLocal", nextLocal);
       locale = nextLocal.value;
     }
 
