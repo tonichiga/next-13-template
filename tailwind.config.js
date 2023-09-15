@@ -6,6 +6,12 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    backgroundImage: {
+      "hero-mobile": "url('/images/hero-mobile.jpeg')", // example
+    },
+    colors: {
+      "text-primary": "#ffffff", // example
+    },
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
