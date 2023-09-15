@@ -12,6 +12,7 @@ const Hero = ({ translation }) => {
   const pathname = usePathname();
   const locale = useLocale();
 
+  console.log(pathname);
   return (
     <section className="flex h-screen flex-col items-center justify-between p-24">
       <ul className="flex justify-center gap-3 w-[200px]">
