@@ -29,9 +29,7 @@ export async function middleware(request: NextRequest) {
 
   // Check if there is any supported locale in the pathname
   const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) =>
-      !pathname.startsWith(`/next-13-template/${locale}/`) &&
-      pathname !== `/next-13-template/${locale}`
+    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
 
   if (pathnameIsMissingLocale) {
@@ -46,9 +44,7 @@ export async function middleware(request: NextRequest) {
 
     const response = NextResponse.redirect(
       new URL(
-        `/next-13-template/${locale}${
-          pathname.startsWith("/next-13-template/") ? "" : "/next-13-template/"
-        }${pathname}`,
+        `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`,
         request.url
       )
     );
