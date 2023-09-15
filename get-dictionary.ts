@@ -9,5 +9,24 @@ const dictionaries = {
   ru: () => import("./dictionaries/ru.json").then((module) => module.default),
 };
 
+export const getTranslator = async (locale: Locale) => {
+  const dictionary = (await dictionaries[locale]?.()) ?? dictionaries.en();
+
+  return (key: string, params?: { [key: string]: string | number }) => {
+    let translation = key
+      .split(".")
+      .reduce((obj, key) => obj && obj[key], dictionary);
+    if (!translation) {
+      return key;
+    }
+    if (params && Object.entries(params).length) {
+      Object.entries(params).forEach(([key, value]) => {
+        translation = translation!.replace(`{{ ${key} }}`, String(value));
+      });
+    }
+    return translation;
+  };
+};
+
 export const getDictionary = async (locale: Locale) =>
   dictionaries[locale]?.() ?? dictionaries.en();
